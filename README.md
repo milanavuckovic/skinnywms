@@ -1,13 +1,13 @@
 
 The skinny WMS is a small WMS server that will help you to visualise your NetCDF and Grib Data.
-The principle is simple: skinny will browse the directory, or the single file passed as argument, and try to inpterpret each NetCDF or GRIB files. From the metadata, it will be build the getCapabilities document, and find a relevant styles to plot the data. 
+The principle is simple: skinny will browse the directory, or a single file passed as argument, and try to inpterpret each NetCDF or GRIB file. From the metadata, it will be build the getCapabilities document, and find a relevant styles to plot the data. 
 
 
 Features:
 ---------
 SkinnyWMS implements 3 of the WMS endpoints:
 - **getCapabilities**: Discover the data, build an XML Document presenting each identified parameter in the file(s) as a layer with the list of their predefined styles. (There is always a default style)  
-- **getMap** : Return the  selected layer suing the selected style.
+- **getMap** : Return the  selected layer using the selected style.
 - **getLegendGraphic**: Return the legend.
 
 
@@ -33,7 +33,7 @@ SkinnyWMS  depends on the ECMWF *Magics* library.
 If you do not have *Magics* installed on your platform, skinnywms is available on conda forge https://conda-forge.org/::
 
     $ conda config --add channels conda-forge
-    $ conda install skinnywms
+    $ conda install -c conda-forge skinnywms
     
 
 If you have *Magics* already installed you can use pip::
@@ -42,13 +42,16 @@ If you have *Magics* already installed you can use pip::
     
 Limitations:
 ------------
-- SkinnyWMS will perform better on well formatted and documented NetCDF and GRIB.
+- SkinnyWMS will perform better on well formatted and documented NetCDF and GRIB files.
+
+- Time component not yet implemented (all data need to be at the same time)
 
 - development stage: **Alpha**,
 
     
 Add your own styles:
 --------------------
+
 
 Multi-process
 -------------
@@ -60,7 +63,7 @@ Cache
 How to install Magics
 -----------------------
 
-that must be installed on the system and accessible as a shared library.
+Magics must be installed on the system and accessible as a shared library.
 Some Linux distributions ship a binary version that may be installed with the standard package manager.
 
 
@@ -95,7 +98,7 @@ Main contributors:
 
 - `Baudouin Raoult` - ECMWF
 - `Stephan Siemen <https://github.com/stephansiemen>`_ - ECMWF
-- `Milana Vuckovic`- ECMWF
+- `Milana Vuckovic <https://github.com/milanavuckovic>`- ECMWF
 
 
 License
